@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EduAssist AI - Viva Presentation & Architecture Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #001E2B;
+    background: #FFFFFF;
+    line-height: 1.5;
+    font-size: 11pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-banner {
+    background: linear-gradient(135deg, #001E2B 0%, #003625 100%);
+    color: #FFFFFF;
+    padding: 24px 28px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    border-left: 6px solid #00ED64;
+  }
+  
+  .header-banner h1 {
+    font-size: 20pt;
+    font-weight: 900;
+    margin: 0 0 6px 0;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+  }
+  
+  .header-banner p {
+    font-size: 11pt;
+    color: #E6F8ED;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 8.5pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  .badge-green { background: #00ED64; color: #001E2B; }
+  .badge-outline { background: #E6F8ED; color: #00684A; border: 1px solid #00ED64; }
+
+  h2 {
+    font-size: 14pt;
+    font-weight: 800;
+    color: #00684A;
+    border-bottom: 2px solid #E2E1D9;
+    padding-bottom: 6px;
+    margin-top: 24px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #001E2B;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .speech-box {
+    background: #FAF9F5;
+    border: 1.5px solid #00ED64;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 14px 0 20px 0;
+    position: relative;
+  }
+  
+  .speech-box .label {
+    font-size: 8pt;
+    font-weight: 800;
+    color: #00684A;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .speech-text {
+    font-size: 11.5pt;
+    font-weight: 600;
+    color: #001E2B;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .sinhala-note {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #E2E1D9;
+    font-size: 9.5pt;
+    color: #4B5563;
+    font-style: normal;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 14px 0;
+  }
+
+  .ui-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E1D9;
+    border-radius: 8px;
+    padding: 12px 14px;
+    border-left: 4px solid #00684A;
+  }
+
+  .ui-card.highlight {
+    border-left: 4px solid #00ED64;
+    background: #FAFFFC;
+  }
+
+  .ui-card h4 {
+    margin: 0 0 4px 0;
+    font-size: 10pt;
+    font-weight: 800;
+    color: #001E2B;
+  }
+
+  .ui-card p {
+    margin: 0;
+    font-size: 9pt;
+    color: #4B5563;
+    line-height: 1.45;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 12px;
+    background: #FAF9F5;
+    border: 1px solid #E2E1D9;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .step-num {
+    width: 28px;
+    height: 28px;
+    background: #001E2B;
+    color: #00ED64;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 10pt;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    margin: 0 0 2px 0;
+    font-size: 10.5pt;
+    font-weight: 800;
+    color: #001E2B;
+  }
+
+  .step-content .file-path {
+    font-family: Consolas, monospace;
+    font-size: 8.5pt;
+    background: #E6F8ED;
+    color: #00684A;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    margin: 2px 0 0 0;
+    font-size: 9pt;
+    color: #374151;
+  }
+
+  code {
+    font-family: Consolas, monospace;
+    font-size: 8.5pt;
+    background: #F3F4F6;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #1F2937;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 9pt;
+  }
+
+  table th {
+    background: #001E2B;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 8px 10px;
+    font-weight: 700;
+  }
+
+  table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #E2E1D9;
+  }
+
+  table tr:nth-child(even) td {
+    background: #FAF9F5;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: INTRODUCTION & SCREENSHOTS EXPLANATION -->
+<div class="header-banner">
+  <span class="badge badge-green">Official Viva Preparation Guide</span>
+  <h1>EduAssist AI — Project Viva & Architecture Guide</h1>
+  <p>Academic Performance Gap Analyzer & AI Advisory System (MySQL & Google Gemini)</p>
+</div>
+
+<h2>1. How to Start Your Presentation (Your Opening Speech)</h2>
+<p>When the examiners ask you to introduce the project, speak confidently using this simple, clear pitch:</p>
+
+<div class="speech-box">
+  <span class="label">Speak this in English (Easy to memorise & speak):</span>
+  <div class="speech-text">
+    "Good morning / Good afternoon, Professors.<br><br>
+    Our project is <strong>EduAssist AI</strong>.<br><br>
+    In simple words, <strong>this is an academic advisory platform for university students that collects data from the university LMS — including course details, assignment scores, and continuous assessment marks</strong>.<br><br>
+    <strong>A very important point:</strong> Students <em>do not submit assignments</em> through this system. Instead, our platform analyzes their existing continuous assessment marks, calculates <strong>how much they need to improve (+X% score gap)</strong> to reach First Class or Distinction benchmarks, and provides personalized AI revision tips on specific weak topics.<br><br>
+    There are only two user roles: <strong>Student</strong> and <strong>Admin</strong>, powered by a <strong>MySQL database</strong> and <strong>Google Gemini AI</strong>."
+  </div>
+  <div class="sinhala-note">
+    💡 <strong>සිංහල තේරුම:</strong> අපේ project එක තමයි EduAssist AI. මේකෙන් කරන්නේ university LMS එකෙන් course details, assignment scores, continuous assessment marks අරගෙන, ළමයාට Distinction හෝ First Class ගන්න තව කොච්චර ලකුණු වැඩි කරගන්න ඕනද (+X% gap) කියලා analyze කරලා, පාඩම් කළ යුතු මාතෘකා වලට AI suggestions ලබා දෙන එකයි. මේකෙන් assignment submit කරන්නේ නැත.
+  </div>
+</div>
+
+<h2>2. Dashboard Components Explained (Why Each Component Exists)</h2>
+<p>Based on your live dashboard screens, here is the exact purpose of every single card and section:</p>
+
+<div class="card-grid">
+  <div class="ui-card highlight">
+    <h4>Hero Section & Improvement CTA</h4>
+    <p><strong>Purpose:</strong> Sets the purpose of the app immediately. Gives the student two primary action buttons: <code>View Improvement Suggestions</code> (launches AI study roadmaps) and <code>View Coursework Deliverables</code>.</p>
+  </div>
+  
+  <div class="ui-card">
+    <h4>Top Card 1: Enrolled LMS Modules (5 Modules)</h4>
+    <p><strong>Purpose:</strong> Synced directly with LMS database records. Confirms the active curriculum modules the student is currently enrolled in for this semester.</p>
+  </div>
+
+  <div class="ui-card">
+    <h4>Top Card 2: Coursework Average (96.5%)</h4>
+    <p><strong>Purpose:</strong> Mathematical average of all continuous assessment marks published so far. Shows the student their current standing (Honors Band).</p>
+  </div>
+
+  <div class="ui-card highlight">
+    <h4>Top Card 3: Improvement Target (+2.5% Gap)</h4>
+    <p><strong>Purpose:</strong> <strong>Core Feature!</strong> Calculates the exact mathematical deficit needed to achieve First Class / Top Distinction (Goal: 95%+). Directly answers "How much do I need to improve?".</p>
+  </div>
+
+  <div class="ui-card">
+    <h4>Top Card 4: AI Improvement Focus (3 Topics)</h4>
+    <p><strong>Purpose:</strong> Identifies the top 3 conceptual areas where marks were lost across coursework, giving immediate focus areas for revision.</p>
+  </div>
+
+  <div class="ui-card highlight">
+    <h4>Floating AI Copilot (Bottom Right)</h4>
+    <p><strong>Purpose:</strong> One-click interactive chatbot. Students can open it anytime to ask specific subject questions or request sample exam problems.</p>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<h2>3. Coursework Intelligence Hub — 4 Tabs Explained</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 25%;">Tab Name</th>
+      <th style="width: 35%;">What is shown? (Screenshots 2, 3, 4)</th>
+      <th style="width: 40%;">Why is it there? (Viva Answer)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tab 1: Deadlines (1)</strong></td>
+      <td>Shows pending continuous assessment deliverables (e.g., <em>CSC205S2 Binary Search Tree</em>, due in 12 days) with a <strong>"Get Revision Tips"</strong> button.</td>
+      <td>Alerts the student to prepare coursework on time. <strong>Crucial note for examiners:</strong> There is NO submit button here; clicking "Get Revision Tips" asks the AI how to score top marks on this assignment.</td>
+    </tr>
+    <tr>
+      <td><strong>Tab 2: Graded Marks (2)</strong></td>
+      <td>Shows already graded continuous assessments (e.g., <em>Network Topology 95/100</em>, <em>Database Schema 98/100</em>) and lecturer feedback.</td>
+      <td>Provides transparency on historical assessment performance so the AI and student can see which modules are already mastered.</td>
+    </tr>
+    <tr>
+      <td><strong>Tab 3: Score Gap & Improvement Suggestions</strong></td>
+      <td><strong>The Main Feature!</strong> Shows each module with:<br>
+      • Current Score (e.g. 78%)<br>
+      • Target Score (e.g. 85%)<br>
+      • <strong>Target Gap (+7.0% Needed)</strong><br>
+      • Priority Improvement Topics (e.g. 3NF, ACID)<br>
+      • "Get Study Tips" button</td>
+      <td>This is the heart of the system. It calculates the exact score difference for every subject and tells the student exactly what topics to study to reach honors marks.</td>
+    </tr>
+    <tr>
+      <td><strong>Tab 4: Academic Schedule</strong></td>
+      <td>A mini calendar and upcoming milestone dates.</td>
+      <td>Helps the student plan study sessions ahead of exam dates without schedule conflicts.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>4. How the Files Connect (Step-by-Step Architecture)</h2>
+<p>Here is the exact technical path from the moment the user opens the page to the MySQL database and AI response:</p>
+
+<div class="flow-step">
+  <div class="step-num">1</div>
+  <div class="step-content">
+    <h4>Step 1: Frontend User Interface (React 19 + Vite)</h4>
+    <span class="file-path">client/src/pages/StudentDashboard.jsx</span>
+    <p>When the page loads, React runs <code>useEffect()</code> which calls the API function <code>studentApi.getDashboard()</code>.</p>
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="step-num">2</div>
+  <div class="step-content">
+    <h4>Step 2: The HTTP Bridge (Axios & JWT Interceptor)</h4>
+    <span class="file-path">client/src/services/api.js</span>
+    <p>Axios sends an HTTP GET request to <code>http://localhost:5000/api/students/dashboard</code>. The request interceptor automatically attaches the user's JWT security token from <code>localStorage</code> into the HTTP Header (<code>Authorization: Bearer &lt;token&gt;</code>).</p>
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="step-num">3</div>
+  <div class="step-content">
+    <h4>Step 3: Backend Server & Security Routing</h4>
+    <span class="file-path">server/server.js ➔ server/src/routes/studentRoutes.js</span>
+    <p>Express server listens on port 5000. It allows requests from port 5173 via CORS. <code>server.js</code> forwards requests matching <code>/api/students</code> to <code>studentRoutes.js</code>, which verifies the JWT token and routes to the controller.</p>
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="step-num">4</div>
+  <div class="step-content">
+    <h4>Step 4: Database Query Execution (MySQL Pool)</h4>
+    <span class="file-path">server/src/db/connection.js ➔ server/src/services/studentService.js</span>
+    <p>Using <code>mysql2/promise</code>, a reusable connection pool executes parameterized SQL queries against <code>eduassist_db</code>. It fetches courses from <code>enrollments</code> and marks from <code>exam_results</code> and <code>assignments</code> tables.</p>
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="step-num">5</div>
+  <div class="step-content">
+    <h4>Step 5: The AI Brain (Google Gemini Integration)</h4>
+    <span class="file-path">server/src/services/geminiService.js (@google/genai SDK)</span>
+    <p>When the student clicks "Get Revision Tips", the backend retrieves the student's real MySQL marks, injects them into a strict <strong>Zero-Hallucination Grounding Prompt</strong>, and calls the Google Gemini API (<code>gemini-2.5-flash</code>). Gemini returns specific study advice for that exact subject.</p>
+  </div>
+</div>
+
+<div class="flow-step">
+  <div class="step-num">6</div>
+  <div class="step-content">
+    <h4>Step 6: UI Rendering</h4>
+    <span class="file-path">client/src/pages/StudentDashboard.jsx</span>
+    <p>The Express controller sends back JSON data. React receives it, updates state via <code>setData(...)</code>, and renders the numbers, score gaps, and suggestion cards dynamically.</p>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<h2>5. Typical Viva Questions & Ideal Answers (English & Sinhala)</h2>
+
+<div class="speech-box">
+  <span class="label">Examiner Question 1:</span>
+  <div class="speech-text" style="font-style: normal; font-size: 10.5pt;">
+    <strong>Q: "Can students submit assignments in this system?"</strong><br>
+    <strong>A:</strong> "No, professor. Our platform is not an assignment submission dropbox. It is strictly an <strong>academic performance advisory and score gap analyzer</strong>. It ingests continuous assessment marks from the LMS to calculate how much students must improve and guides their revision."
+  </div>
+  <div class="sinhala-note">
+    💡 <strong>සිංහල:</strong> "නැහැ සර්, මේක assignment submit කරන එකක් නෙවෙයි. මේක LMS marks analyze කරලා ලකුණු වැඩි කරගන්න උපදෙස් දෙන academic advisory platform එකක්."
+  </div>
+</div>
+
+<div class="speech-box">
+  <span class="label">Examiner Question 2:</span>
+  <div class="speech-text" style="font-style: normal; font-size: 10.5pt;">
+    <strong>Q: "How does the AI know the student's marks without hallucinating?"</strong><br>
+    <strong>A:</strong> "We use a technique called <strong>Grounding</strong> in <code>geminiService.js</code>. Before contacting the Gemini model, our backend queries the MySQL database for the student's verified coursework marks. We inject this authoritative context into the system prompt with strict zero-hallucination instructions, ensuring the AI only reasons over verified university records."
+  </div>
+  <div class="sinhala-note">
+    💡 <strong>සිංහල:</strong> "අපි Gemini එකට යවන්න කලින් MySQL database එකෙන් ළමයාගේ ඇත්තම marks කියවලා, ඒ දත්ත prompt එකට inject කරලා (Grounding) තමයි AI එකෙන් advice ගන්නේ. ඒ නිසා AI එක බොරු ලකුණු හදන්නේ නැහැ (Zero Hallucination)."
+  </div>
+</div>
+
+<div class="speech-box">
+  <span class="label">Examiner Question 3:</span>
+  <div class="speech-text" style="font-style: normal; font-size: 10.5pt;">
+    <strong>Q: "What database does this system use?"</strong><br>
+    <strong>A:</strong> "We use <strong>MySQL</strong> exclusively (database name: <code>eduassist_db</code>). We connect asynchronously using <code>mysql2/promise</code> with a connection pool configured in <code>server/src/db/connection.js</code>."
+  </div>
+  <div class="sinhala-note">
+    💡 <strong>සිංහල:</strong> "අපි පාවිච්චි කරන්නේ MySQL පමණයි (`eduassist_db`). `mysql2/promise` pool එකක් හරහා තමයි backend එක connect වෙන්නේ."
+  </div>
+</div>
+
+<div class="speech-box">
+  <span class="label">Examiner Question 4:</span>
+  <div class="speech-text" style="font-style: normal; font-size: 10.5pt;">
+    <strong>Q: "What are the roles in this system?"</strong><br>
+    <strong>A:</strong> "There are only two active roles: <strong>Student</strong> (who views personalized score gaps, revision suggestions, and study roadmaps) and <strong>Admin</strong> (who manages student records, courses, and system analytics)."
+  </div>
+  <div class="sinhala-note">
+    💡 <strong>සිංහල:</strong> "system එකේ roles 2ක් පමණයි තියෙන්නේ — Student සහ Admin."
+  </div>
+</div>
+
+</body>
+</html>

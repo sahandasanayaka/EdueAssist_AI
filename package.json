@@ -1,0 +1,16 @@
+{
+  "name": "eduassist-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EduAssist AI - Intelligent Student & Admin Academic Platform",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js",
+    "dev": "node start.js",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client run dev"
+  },
+  "keywords": ["education", "ai", "lms", "react", "nodejs"],
+  "author": "sahandasanayaka",
+  "license": "ISC"
+}

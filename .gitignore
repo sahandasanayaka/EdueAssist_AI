@@ -1,0 +1,34 @@
+# Dependency directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production build outputs
+client/dist/
+dist/
+
+# Environment variables & secrets (CRITICAL: Never commit to Git)
+.env
+.env.local
+.env.production
+server/.env
+server/.env.local
+server/.env.production
+*.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Operating System & IDE metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

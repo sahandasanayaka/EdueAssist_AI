@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 52" fill="none">
+  <defs>
+    <linearGradient id="visioEmeraldGrad" x1="0" y1="0" x2="240" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="capGlowGrad" x1="12" y1="10" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D1FAE5"/>
+    </linearGradient>
+    <linearGradient id="sparkleGrad" x1="28" y1="8" x2="42" y2="22" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34D399"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Capsule Pill Container -->
+  <rect x="2" y="4" width="44" height="44" rx="12" fill="url(#visioEmeraldGrad)" />
+  <rect x="2.5" y="4.5" width="43" height="43" rx="11.5" stroke="#6EE7B7" stroke-opacity="0.5"/>
+
+  <!-- Academic Cap & AI Spark Inside Capsule -->
+  <g transform="translate(4, 6)">
+    <!-- Graduation Cap Diamond -->
+    <path d="M20 9L6 16.5L20 23.5L32 17.5V23.5C32 24.6 30.5 25.5 28.5 25.5C26.5 25.5 25 24.6 25 23.5V19.8L20 23.5L6 16.5L20 9Z" fill="url(#capGlowGrad)"/>
+    <!-- Base Ribbon -->
+    <path d="M12 21V25.5C12 28.5 15.6 31 20 31C24.4 31 28 28.5 28 25.5V21" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.95"/>
+    <!-- AI Sparkle in upper right -->
+    <path d="M30 6C30.4 8.2 32.2 10 34.5 10.4C32.2 10.8 30.4 12.6 30 14.8C29.6 12.6 27.8 10.8 25.5 10.4C27.8 10 29.6 8.2 30 6Z" fill="url(#sparkleGrad)"/>
+  </g>
+
+  <!-- Brand Typography: "EduAssist" -->
+  <text x="56" y="32" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="800" fill="#0F172A" letter-spacing="-0.5">EduAssist<tspan fill="#10B981">.</tspan></text>
+
+  <!-- AI Badge -->
+  <rect x="176" y="16" width="28" height="18" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="190" y="29.5" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#059669" text-anchor="middle">AI</text>
+
+  <!-- Subtitle -->
+  <text x="57" y="44" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#64748B" letter-spacing="0.8">ACADEMIC &amp; CAREER COMPANION</text>
+</svg>

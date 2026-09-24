@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="logoIndigoGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5B4DFB"/>
+      <stop offset="1" stop-color="#4338CA"/>
+    </linearGradient>
+    <linearGradient id="logoSparkGrad" x1="30" y1="6" x2="44" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Capsule Pill Container -->
+  <rect width="48" height="48" rx="14" fill="url(#logoIndigoGrad)" />
+  <rect x="0.5" y="0.5" width="47" height="47" rx="13.5" stroke="#818CF8" stroke-opacity="0.4"/>
+
+  <!-- Academic Cap & AI Spark Inside Capsule -->
+  <g transform="translate(4, 5)">
+    <!-- Graduation Cap Diamond -->
+    <path d="M20 9L6 16.5L20 23.5L32 17.5V23.5C32 24.6 30.5 25.5 28.5 25.5C26.5 25.5 25 24.6 25 23.5V19.8L20 23.5L6 16.5L20 9Z" fill="#FFFFFF"/>
+    <!-- Base Ribbon -->
+    <path d="M12 21V25.5C12 28.5 15.6 31 20 31C24.4 31 28 28.5 28 25.5V21" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+    <!-- AI Sparkle in upper right -->
+    <path d="M30 6C30.4 8.2 32.2 10 34.5 10.4C32.2 10.8 30.4 12.6 30 14.8C29.6 12.6 27.8 10.8 25.5 10.4C27.8 10 29.6 8.2 30 6Z" fill="url(#logoSparkGrad)"/>
+  </g>
+</svg>

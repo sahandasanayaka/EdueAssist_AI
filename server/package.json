@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-phase4.js",
+    "test:phase6": "node test-phase6.js",
+    "test:phase7": "node test-phase7.js",
+    "test:phase8": "node test-phase8.js",
+    "test:phase9": "node test-phase9.js",
+    "test:phase10": "node test-phase10.js",
+    "test:phase11": "node test-phase11.js",
+    "test:phase12": "node test-phase12.js",
+    "test:phase13": "node test-phase13.js",
+    "test:phase14": "node test-phase14.js",
+    "test:all": "node test-phase4.js && node test-phase6.js && node test-phase7.js && node test-phase8.js && node test-phase9.js && node test-phase10.js && node test-phase11.js && node test-phase12.js && node test-phase13.js && node test-phase14.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.4"
+  }
+}
